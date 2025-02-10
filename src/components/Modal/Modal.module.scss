@@ -1,0 +1,128 @@
+@use '../../variables.scss' as *;
+@use '../../global.scss' as *;
+
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 16px;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10000;
+	overflow-y: auto;
+	background-color: $blackDark;
+
+	.modalContainer {
+		position: relative;
+		margin: 0 auto;
+		max-width: 800px;
+		width: 100%;
+		background-color: $white;
+
+		.subHeader {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 16px;
+			position: sticky;
+			top: 0;
+			z-index: 1000;
+			background-color: $white;
+			transition: box-shadow 0.3s ease-in-out;
+
+			&.scrolled {
+				box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
+			}
+
+			.closeButton {
+				@include button;
+				display: none;
+			}
+
+			.subHeaderButton {
+				@include button;
+				padding: 6px 12px;
+				font-family: 'Open Sans', sans-serif;
+				font-weight: 600;
+				font-size: 14px;
+				line-height: 20px;
+			}
+
+			.saveButton {
+				background-color: $blue;
+				color: $white;
+			}
+
+			.subHeaderLeft {
+				display: flex;
+				align-items: center;
+				gap: 16px;
+
+				.subHeaderTitle {
+					font-family: 'Montserrat', sans-serif;
+					font-weight: 400;
+					font-size: 20px;
+				}
+			}
+
+			.subHeaderRight {
+				display: flex;
+				gap: 4px;
+			}
+		}
+		.modalFooterButtons {
+			display: none;
+			padding: 16px;
+			padding-top: 0;
+
+			.modalFooterButton {
+				@include button;
+				padding: 6px 12px;
+				font-family: 'Open Sans', sans-serif;
+				font-weight: 600;
+				font-size: 14px;
+				line-height: 20px;
+			}
+			.saveButton {
+				background-color: $blue;
+				color: $white;
+			}
+		}
+	}
+}
+@media (max-width: 767px) {
+	.modalOverlay {
+		padding: 0;
+
+		.modalContainer {
+			.subHeader {
+				margin-bottom: 16px;
+				border-bottom: 1px solid $grayLight;
+
+				.subHeaderLeft {
+					width: 100%;
+					justify-content: space-between;
+
+					.subHeaderTitle {
+						font-size: 14px;
+						color: $grayDark;
+						text-transform: uppercase;
+					}
+				}
+
+				.subHeaderButton {
+					display: none;
+				}
+
+				.closeButton {
+					display: flex;
+				}
+			}
+			.modalFooterButtons {
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+			}
+		}
+	}
+}

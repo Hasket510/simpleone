@@ -1,0 +1,73 @@
+@use '../../global.scss' as *;
+
+.header {
+	padding: 8px 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.tabs {
+		display: none;
+	}
+
+	.logo {
+		margin-right: auto;
+	}
+
+	.search {
+		@include input;
+
+		.searchInput {
+			min-width: 260px;
+		}
+	}
+
+	.userContainer {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		.avatar {
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		.username {
+			font-weight: 400;
+		}
+
+		.settingButton {
+			@include button;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.header {
+		padding: 12px 16px;
+		.tabs {
+			display: flex;
+			border: none;
+
+			.tabItem {
+				padding: 0;
+			}
+		}
+
+		.logo {
+			display: none;
+		}
+
+		.search {
+			display: none;
+		}
+
+		.userContainer {
+			.username {
+				display: none;
+			}
+		}
+	}
+}

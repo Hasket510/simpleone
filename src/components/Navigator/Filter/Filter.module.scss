@@ -1,0 +1,23 @@
+@use '../../../global.scss' as *;
+@use '../../../variables.scss' as *;
+
+.filterContainer {
+	display: flex;
+	justify-content: space-between;
+	padding: 16px;
+	max-width: 284px;
+	border-bottom: 1px solid $grayLight;
+
+	.filter {
+		@include input;
+		margin-right: 2px;
+
+		.filterInput {
+			min-width: 172px;
+		}
+	}
+
+	.pushpinButton {
+		@include button;
+	}
+}

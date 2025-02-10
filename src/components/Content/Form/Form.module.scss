@@ -1,0 +1,147 @@
+@use '../../../global.scss' as *;
+@use '../../../variables.scss' as *;
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	padding: 16px;
+	padding-top: 0;
+
+	.formTitle {
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 32px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.formList {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+
+		&.modal {
+			flex-direction: column;
+
+			.formItem {
+				width: 100%;
+			}
+		}
+
+		.formItem {
+			width: calc(50% - 8px);
+
+			.inputTitle {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+				font-weight: 600;
+				line-height: 20px;
+
+				.inputGroup {
+					display: flex;
+					align-items: flex-start;
+					gap: 4px;
+
+					.inputContainer {
+						@include input;
+						margin-right: 0;
+						flex-grow: 1;
+						font-weight: 400;
+
+						.badgesContainer {
+							display: flex;
+							flex-wrap: wrap;
+							gap: 4px;
+
+							.badge {
+								padding: 2px 8px;
+								display: flex;
+								align-items: center;
+								background-color: $blueLighter;
+								border: 1px solid $blueLight;
+								border-radius: 4px;
+								position: relative;
+								white-space: nowrap;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								min-width: 0;
+								max-width: 100%;
+
+								&.close {
+									padding: 2px 24px 2px 8px;
+								}
+
+								.closeButton {
+									position: absolute;
+									right: 8px;
+								}
+							}
+						}
+
+						.input {
+							width: 100%;
+							line-height: 20px;
+						}
+					}
+
+					.badges {
+						padding: 4px 8px;
+						min-height: 36px;
+					}
+
+					.formButton {
+						@include button;
+					}
+				}
+			}
+		}
+		.width {
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	.form {
+		.formList {
+			flex-direction: column;
+
+			.formItem {
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.form {
+		.formTitle {
+			font-size: 20px;
+			line-height: 24px;
+		}
+	}
+}
+
+@media (max-width: 535px) {
+	.form {
+		.formList {
+			.formItem {
+				.inputTitle {
+					.inputGroup {
+						.inputContainer {
+							.badgesContainer {
+								.badge {
+									max-width: 156px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

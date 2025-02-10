@@ -1,0 +1,23 @@
+@use '../../variables.scss' as *;
+
+.navigator {
+	display: flex;
+
+	.menuContainer {
+		border-right: 1px solid $grayLight;
+	}
+}
+
+@media (max-width: 991px) {
+	.navigator {
+		.menuContainer {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.navigator {
+		display: none;
+	}
+}

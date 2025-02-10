@@ -1,0 +1,10 @@
+@use './variables.scss' as *;
+
+.app {
+	background-color: $white;
+
+	.main {
+		display: flex;
+		border-top: 1px solid $grayLight;
+	}
+}

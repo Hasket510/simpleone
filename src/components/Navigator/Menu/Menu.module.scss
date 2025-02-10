@@ -1,0 +1,19 @@
+@use '../../../variables.scss' as *;
+
+.menuList {
+	display: flex;
+	flex-direction: column;
+
+	.arrow {
+		fill: $gray;
+	}
+
+	.menuItem {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 10px 16px;
+		line-height: 20px;
+		cursor: pointer;
+	}
+}
