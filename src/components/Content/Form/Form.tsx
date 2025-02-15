@@ -59,7 +59,7 @@ export function Form({ isModal = false }: IModal) {
 															item.title === 'Согласующие' && styles.close
 														}`}
 													>
-														{badge}
+														<span className={styles.badgeName}>{badge}</span>
 														{item.title === 'Согласующие' && (
 															<IconButton
 																Icon={Close}

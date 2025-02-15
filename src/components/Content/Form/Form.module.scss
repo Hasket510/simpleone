@@ -51,11 +51,13 @@
 						margin-right: 0;
 						flex-grow: 1;
 						font-weight: 400;
+						overflow: hidden;
 
 						.badgesContainer {
 							display: flex;
 							flex-wrap: wrap;
 							gap: 4px;
+							overflow: hidden;
 
 							.badge {
 								padding: 2px 8px;
@@ -65,11 +67,15 @@
 								border: 1px solid $blueLight;
 								border-radius: 4px;
 								position: relative;
-								white-space: nowrap;
-								overflow: hidden;
-								text-overflow: ellipsis;
 								min-width: 0;
-								max-width: 100%;
+
+								.badgeName {
+									flex: 1;
+									min-width: 0;
+									overflow: hidden;
+									text-overflow: ellipsis;
+									white-space: nowrap;
+								}
 
 								&.close {
 									padding: 2px 24px 2px 8px;
@@ -122,26 +128,6 @@
 		.formTitle {
 			font-size: 20px;
 			line-height: 24px;
-		}
-	}
-}
-
-@media (max-width: 535px) {
-	.form {
-		.formList {
-			.formItem {
-				.inputTitle {
-					.inputGroup {
-						.inputContainer {
-							.badgesContainer {
-								.badge {
-									max-width: 156px;
-								}
-							}
-						}
-					}
-				}
-			}
 		}
 	}
 }
