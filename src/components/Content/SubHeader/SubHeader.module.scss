@@ -50,6 +50,8 @@
 
 @media (max-width: 767px) {
 	.subHeader {
+		position: static;
+
 		.subHeaderLeft {
 			width: 100%;
 			justify-content: space-between;
