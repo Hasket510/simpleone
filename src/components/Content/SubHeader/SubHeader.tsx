@@ -27,6 +27,13 @@ export function SubHeader() {
 		}
 	}, [sentinelRef])
 
+	useEffect(() => {
+		document.body.classList.toggle(styles.stopScroll, isModalOpen)
+		return () => {
+			document.body.classList.remove(styles.stopScroll)
+		}
+	}, [isModalOpen])
+
 	return (
 		<>
 			<div ref={sentinelRef} />

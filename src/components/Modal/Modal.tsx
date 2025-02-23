@@ -1,17 +1,27 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import Close from '../../images/close.svg?react'
 import { Form } from '../Content/Form/Form'
 import { IconButton } from '../IconButton/IconButton'
 import styles from './Modal.module.scss'
 import { IModalProps } from './Modal.types'
 export function Modal({ isOpen, onClose }: IModalProps) {
-	useEffect(() => {
-		const handleKeyDown = (e: { key: string }) => {
+	const handleKeyDown = useCallback(
+		(e: KeyboardEvent) => {
 			if (e.key === 'Escape') {
 				onClose()
 			}
-		}
+		},
+		[onClose]
+	)
 
+	const handleClickOutside = useCallback(
+		(e: React.MouseEvent<HTMLDivElement>) => {
+			if (e.target === e.currentTarget) onClose()
+		},
+		[onClose]
+	)
+
+	useEffect(() => {
 		if (isOpen) {
 			document.addEventListener('keydown', handleKeyDown)
 		}
@@ -19,14 +29,7 @@ export function Modal({ isOpen, onClose }: IModalProps) {
 		return () => {
 			document.removeEventListener('keydown', handleKeyDown)
 		}
-	}, [isOpen, onClose])
-
-	const handleClickOutside = (e: React.MouseEvent<HTMLDivElement>) => {
-		const overlay = e.target as HTMLDivElement
-		if (overlay.classList.contains(styles.modalOverlay)) {
-			onClose()
-		}
-	}
+	}, [isOpen, handleKeyDown])
 
 	if (!isOpen) return null
 
