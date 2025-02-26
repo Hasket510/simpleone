@@ -10,7 +10,7 @@ export function Filter() {
 		<div className={styles.filterContainer}>
 			<form className={styles.filter}>
 				<input
-					type='filter'
+					type='search'
 					placeholder='Поиск по меню'
 					className={styles.filterInput}
 					value={searchValue}
