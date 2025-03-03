@@ -22,7 +22,7 @@ export function Header() {
 					placeholder='Поиск'
 					className={styles.searchInput}
 					value={searchValue}
-					onInput={e => setSearchValue(e.currentTarget.value)}
+					onChange={e => setSearchValue(e.currentTarget.value)}
 				/>
 				<IconButton Icon={Search} className={styles.searchIcon} />
 				{searchValue && (
